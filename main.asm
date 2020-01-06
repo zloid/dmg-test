@@ -91,7 +91,7 @@ NintendoLogo:	; DO NOT MODIFY!!!
 	db	$00,$08,$11,$1f,$88,$89,$00,$0e,$dc,$cc,$6e,$e6,$dd,$dd,$d9,$99
 	db	$bb,$bb,$67,$63,$6e,$0e,$ec,$cc,$dd,$dc,$99,$9f,$bb,$b9,$33,$3e
 
-ROMTitle:		db	"JETPACKDUDE"	; ROM title (11 bytes)
+ROMTitle:		db	"IDOLZtests1"	; ROM title (11 bytes)
 ProductCode:	db	"AJDE"			; Product code (4 bytes)
 GBCSupport:		db	0				; GBC support (0 = DMG only, $80 = DMG/GBC, $C0 = GBC only)
 NewLicenseCode:	dw	0				; new license code (2 bytes)
@@ -111,7 +111,16 @@ ROMChecksum:	ds	2				; ROM checksum (2 bytes) (handled by post-linking tool)
 
 ProgramStart:
 	di						; disable interrupts
-	push	af
+	push    af;Push register AF into the stack. 
+    ;The low byte's bit 7 corresponds to the Z flag, its bit 6 to 
+    ;the N flag, bit 5 to the H flag, and bit 4 to the C flag.
+    ;Bits 3 to 0 are reset.
+    ;https://rednex.github.io/rgbds/gbz80.7.html
+    ;Stack Operations Instructions
+    ;Cycles: 4
+    ;Bytes: 1
+    ;Flags: None affected.
+
 	and	a					; same as cp 0
 	jr	z,.dontCheckGBType	; if GBType check has already run, don't do it again
 

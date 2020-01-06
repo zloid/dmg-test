@@ -34,7 +34,7 @@ ClearVRAM:
 ; ================================================================
 	
 ClearLoop:
-	xor	a
+	xor	a; ld a, 0
 	ld	[hl+],a
 	dec	bc
 	ld	a,b
