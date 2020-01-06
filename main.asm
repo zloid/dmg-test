@@ -121,7 +121,13 @@ ProgramStart:
     ;Bytes: 1
     ;Flags: None affected.
 
-	and	a					; same as cp 0
+	and	a					; same as cp 0    
+    ;AND - This operation takes each bit of both operands, and sets the   
+    ;corresponding bit of the result if and only if both bits are set.
+    ;cp is a C-om-P-are two values
+
+
+
 	jr	z,.dontCheckGBType	; if GBType check has already run, don't do it again
 
 	ld	a,IEF_VBLANK

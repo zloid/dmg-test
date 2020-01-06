@@ -35,6 +35,14 @@ ClearVRAM:
 	
 ClearLoop:
 	xor	a; ld a, 0
+	;xor - is for boolean algebra operation
+	;	ld a, %01010011
+    ;	ld b, %00110101
+   	; 	xor a, b
+    ;	A  %0101 0011
+    ;   B  %0011 0101
+    ;     ----------
+    ; A xor B  %0110 0110
 	ld	[hl+],a
 	dec	bc
 	ld	a,b
